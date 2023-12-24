@@ -1,11 +1,4 @@
-const Pool = require('pg').Pool
-const pool = new Pool({
-    user: 'dara',
-    host: 'localhost',
-    database: 'api',
-    password: 'shoyinka',
-    port: 5432,
-})
+const pool = require('../db/db')
 
 const getComputers = (request, response) => {
     pool.query('SELECT * FROM computers ORDER BY id ASC', (error, results) => {
@@ -27,7 +20,6 @@ const getComputerById = (request, response) => {
     })
 }
   
-
   
 module.exports = {
 getComputers,
